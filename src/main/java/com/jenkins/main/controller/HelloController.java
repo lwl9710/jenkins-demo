@@ -14,6 +14,6 @@ public class HelloController {
 
     @GetMapping("/hello")
     public String hello() {
-        return "Hello jenkins--maven-git";
+        return "Hello jenkins--maven-web-hook";
     }
 }

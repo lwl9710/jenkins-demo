@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('拉取代码') {
+            steps {
+                git credentialsId: '8b810f13-2da4-482c-95bc-7dd0b161cd23', url: 'https://github.com/lwl9710/jenkins-demo'
+            }
+        }
+        stage('打包项目') {
+            steps {
+                sh 'mvn clean package -Dmaven.test.skip=true'
+            }
+        }
+        stage('发布项目') {
+            steps {
+                deploy adapters: [tomcat9(credentialsId: '09849329-85ac-4ab1-bbf8-7329ae6a850b', path: '', url: 'http://106.12.205.105:8080')], contextPath: null, war: 'target/*.war'
+            }
+        }
+    }
+}

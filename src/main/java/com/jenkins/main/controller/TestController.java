@@ -5,15 +5,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Author: BlueSky
- * Date: 2020-07-03 18:58
- * Description: 问候语
+ * Date: 2020-07-04 22:02
+ * Description: 测试自动部署
  */
 
 @RestController
-public class HelloController {
+public class TestController {
 
-    @GetMapping("/hello")
-    public String hello() {
-        return "Hello world!";
+    @GetMapping("/test")
+    public String test() {
+        return "自动部署测试";
     }
 }
